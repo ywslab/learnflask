@@ -18,4 +18,4 @@ def fengguifan():
 @app.route('/greet',defaults={'name':'fengguifan'})
 @app.route('/greet/<name>')
 def greet(name):
-    return "<h1>Hello,%s!</h1> % name"
+    return "<h1>Hello,%s!</h1>" % name
