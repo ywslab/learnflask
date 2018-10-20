@@ -1,0 +1,4 @@
+#files include password
+/.env
+#files no need
+.pyc
