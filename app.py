@@ -1,6 +1,6 @@
 # -*- coding:utf-8 -*-
-from flask import request
-from flask import Flask
+from flask import request,make_response,url_for
+from flask import Flask,redirect
 
 app = Flask(__name__)
 
@@ -33,3 +33,25 @@ def hello():
 @app.route('/goto/<int:year>')
 def goto(year):
     return '<h1>Welcome to %s!<h1>' % year
+
+@app.route('/colors/<any(blue,white,red):color>')
+def three_colors(color):
+    return '<h1>color %s </h1> ' %color
+#Hook
+'''
+@app.before_request
+def do_something():
+    return '<h1>hahahhahaha</h1>'
+'''
+@app.route('/set/<name>')
+def set_cookie(name):
+    response = make_response(redirect(url_for('hi')))
+    response.set_cookie('name',name)
+    return response
+
+@app.route('/hi')
+def hi():
+    name = request.args.get('name')
+    if name is None:
+        name = request.cookies.get('name','Human')
+    return '<h1>Hello,%s</h1>' %name
