@@ -1,13 +1,14 @@
 [[source]]
-url = "https://pypi.org/simple"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple/"
 verify_ssl = true
-name = "pypi"
+name = "thupypi"
 
 [dev-packages]
 
 [packages]
 flask = "*"
 python-dotenv = "*"
+flask-wtf = "*"
 
 [requires]
 python_version = "3.4"
