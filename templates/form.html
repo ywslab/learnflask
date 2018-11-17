@@ -1,14 +1,5 @@
 {% extends 'base.html' %}
-{% block other %}
-<form method="post">
-    {{ form. csrf_token }}
-    <!-- 渲染 CSRF 令 牌 隐藏 字段 -->
-    {{ form. username. label }}
-    {{ form. username }}<br>
-    {{ form. password. label }}
-    {{ form. password }}<br>
-    {{ form. remember }}
-    {{ form. remember. label }}<br>
-    {{ form. submit }}<br> </form>
-
+{% import "bootstrap/wtf.html" as wtf %}
+{% block page_content %}
+{{ wtf.quick_form(form) }}
 {% endblock %}

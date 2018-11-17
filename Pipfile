@@ -9,6 +9,8 @@ name = "thupypi"
 flask = "*"
 python-dotenv = "*"
 flask-wtf = "*"
+flask-bootstrap = "*"
+flask-sqlalchemy = "*"
 
 [requires]
 python_version = "3.4"
