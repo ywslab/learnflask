@@ -1,8 +1,10 @@
 from flask import Flask, redirect,request, make_response, url_for, render_template
+from learnflask.forms import LoginForm
 
 
 app = Flask(__name__)
 
+app.secret_key=('fdasdfasd')
 user = {
     'username': 'feng',
     'bio': 'this guy are lazy,nothing left',
@@ -28,3 +30,10 @@ def inject_feng():
     feng = {'name':'feng',}
     return dict(feng=feng)
 app.context_processor(inject_feng)
+
+@app.route('/form',methods=['GET','POST'])
+def formtest():
+    form = LoginForm()
+    if form.validate_on_submit():
+        print(form.username.data)
+    return render_template('form.html',form=form)
